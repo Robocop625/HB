@@ -9,6 +9,7 @@
 
 import UIKit
 import WebKit
+import OneSignal
 
 class ViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
@@ -21,6 +22,10 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let status: OSPermissionSubscriptionState = OneSignal.getPermissionSubscriptionState()
+        let userID = status.subscriptionStatus.userId
+        print("userID = \(userID)")
         
         // 1
         let url = URL(string: "https://hooliganbrand.us")!
@@ -41,5 +46,6 @@ class ViewController: UIViewController, WKNavigationDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var sendPush: UIButton!
     
 }
