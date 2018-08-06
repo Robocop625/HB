@@ -36,8 +36,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         toolbarItems = [refresh]
         navigationController?.isToolbarHidden = false
     }
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title
     }
     
@@ -45,7 +44,5 @@ class ViewController: UIViewController, WKNavigationDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBOutlet weak var sendPush: UIButton!
-    
+   
 }
